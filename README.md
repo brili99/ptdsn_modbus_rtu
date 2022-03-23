@@ -8,6 +8,7 @@ menggunakan image 2022-01-28-raspios-buster-armhf atau raspi versi buster
 sudo apt update
 sudo apt install apache2 php mariadb-server php7.3-mysql
 sudo mysql_secure_installation
+pip install mysql-connector
 sudo chmod -R 777 /var/www/html
 cd /var/www/html
 rm index.html
