@@ -1,7 +1,8 @@
 import serial
 import mysql.connector
 
-ser = serial.Serial('/dev/ttyAMA0', 9600, bytesize=serial.EIGHTBITS, parity=serial.PARITY_NONE, stopbits=serial.STOPBITS_TWO, timeout=1)
+ser = serial.Serial('/dev/ttyS0', 9600, bytesize=serial.EIGHTBITS,
+					parity=serial.PARITY_NONE, stopbits=serial.STOPBITS_TWO, timeout=1)
 conn = mysql.connector.connect(
 	user='ptdsn_admin', password='bismillah', host='127.0.0.1', database='ptdsn')
 mode_write = False
@@ -20,7 +21,6 @@ def send_to_db(_conn, name, value):
 	_conn.commit()
 	cursor.close()
 
-#send_to_db(conn, 1, 100)
 
 while True:
 	read = ser.read()
