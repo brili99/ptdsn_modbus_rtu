@@ -12,11 +12,10 @@ data_arr = []
 def send_to_db(_conn, name, value):
 	cursor = _conn.cursor()
 	sql1 = "UPDATE status SET nilai='"+str(value)+"' WHERE nama='"+str(name)+"'"
-	sql2 = "INSERT INTO log (nama, nilai) VALUES ('" + \
-							str(name)+"','"+str(value)+"')"
-	# print(sql)
 	cursor.execute(sql1)
-	cursor.execute(sql2)
+	#logging
+	# sql2 = "INSERT INTO log (nama, nilai) VALUES ('"+str(name)+"','"+str(value)+"')"
+	# cursor.execute(sql2)
 
 	_conn.commit()
 	cursor.close()
